@@ -34,9 +34,9 @@ Graph::Graph(int COLS, int ROWS, char blank, char blankColor) {
             this->clearBuffer[idx + 4] = ';';
             this->clearBuffer[idx + 5] = '5';
             this->clearBuffer[idx + 6] = ';';
-            this->clearBuffer[idx + 7] = '2';
-            this->clearBuffer[idx + 8] = '3';
-            this->clearBuffer[idx + 9] = '1';
+            this->clearBuffer[idx + 7] = '1';
+            this->clearBuffer[idx + 8] = '9';
+            this->clearBuffer[idx + 9] = '6';
             this->clearBuffer[idx + 10] = 'm';
             this->clearBuffer[idx + 11] = blank;
         }
@@ -59,5 +59,8 @@ void Graph::clear() {}
 void Graph::swapBuffers() {}
 void Graph::display() {
     cout << "\033[H" << flush;
-    cout << this->clearBuffer << flush;
+    //right now we print our buffer
+    cout << this->clearBuffer
+    //after we print the return to default color
+         << "\033[0m" << flush;
 }
