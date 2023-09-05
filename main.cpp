@@ -5,8 +5,8 @@
 
 using namespace std;
 
-const int WIDTH = 135;
-const int HEIGHT = 45;
+const int WIDTH = 80;
+const int HEIGHT = 24;
 
 double* a0 = new double[WIDTH];
 double* a1 = new double[WIDTH];
@@ -23,8 +23,8 @@ void clear() {
 
 void createGraphs(double t) {
     for(int i = 0; i < WIDTH; i++) {
-        a0[i] = (sin(t + i * 2*M_PI / WIDTH)) + (cos(t + i * 2*M_PI / 20));
-        a1[i] = (cos(t + i * 4*M_PI / WIDTH)) + (cos(t + i * 2*M_PI / 30));
+        a0[i] = (sin(t + i * 2*M_PI / WIDTH)) + (cos(t + i * 2*M_PI / 11.8518518519));
+        a1[i] = (cos(t + i * 4*M_PI / WIDTH)) + (cos(t + i * 2*M_PI / 17.7777777778));
     }
 }
 
