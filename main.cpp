@@ -3,6 +3,9 @@
 #include <math.h>
 #include <windows.h>
 
+#include "Graph.h"
+//#include <wincon.h>
+
 using namespace std;
 
 const int WIDTH = 80;
@@ -152,16 +155,32 @@ void displayBuffer() {
 }
 
 int main() {
-    double t = 0.0;
-    while(true) {
-        clear();
-        createGraphs(t);
-        rescale(a0, WIDTH);
-        rescale(a1, WIDTH);
-        initBuffer();
-        plotGraph2(a0, a1, WIDTH, 176, 178, 177);
-        t += 0.001;
-        displayBuffer();
-    }
+
+    //the section below forces windows 10 devices to work with linux ansi
+#ifdef _WIN32
+    DWORD dwMode;
+    HANDLE hOutput = GetStdHandle(STD_OUTPUT_HANDLE);
+    GetConsoleMode(hOutput, &dwMode); dwMode |= ENABLE_PROCESSED_OUTPUT | ENABLE_VIRTUAL_TERMINAL_PROCESSING;
+    SetConsoleMode(hOutput, dwMode);
+#endif
+//    double t = 0.0;
+//    while(true) {
+//        clear();
+//        createGraphs(t);
+//        rescale(a0, WIDTH);
+//        rescale(a1, WIDTH);
+//        initBuffer();
+//        plotGraph2(a0, a1, WIDTH, 176, 178, 177);
+//        t += 0.001;
+//        displayBuffer();
+//    }
+//    string a = "\033[38;5;021m";
+//    cout << a.length() << endl;
+//    cout << "\033[38;5;021m" << "Error!" << "\033[0m" << endl;
+//    cout << "\033[H" << endl;
+//    cout << "\033[38;5;021m" << "Error2!" << "\033[0m" << endl;
+
+    Graph graph(WIDTH, HEIGHT);
+    graph.display();
     return 0;
 }
