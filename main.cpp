@@ -157,7 +157,7 @@ int main() {
         rescale(a0, WIDTH);
         rescale(a1, WIDTH);
         initBuffer();
-        plotGraph2(a0, a1, WIDTH, '-', '_', '=');
+        plotGraph2(a0, a1, WIDTH, '@', 'O', 'X');
         t += 0.001;
         displayBuffer();
     }
