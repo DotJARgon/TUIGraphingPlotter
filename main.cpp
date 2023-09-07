@@ -137,7 +137,7 @@ void plotGraph(double* a, int size, char c) {
 }
 
 void initBuffer() {
-    memset(buffer, 219, (WIDTH+1)*HEIGHT);
+    memset(buffer, ' ', (WIDTH+1)*HEIGHT);
     for(int i = 0; i < HEIGHT; i++) {
         setPixel('\n', WIDTH, i);
     }
@@ -157,7 +157,7 @@ int main() {
         rescale(a0, WIDTH);
         rescale(a1, WIDTH);
         initBuffer();
-        plotGraph2(a0, a1, WIDTH, 176, 178, 177);
+        plotGraph2(a0, a1, WIDTH, '-', '_', '=');
         t += 0.001;
         displayBuffer();
     }
